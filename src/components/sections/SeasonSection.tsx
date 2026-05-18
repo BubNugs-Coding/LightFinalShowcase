@@ -8,7 +8,7 @@ import { Section } from '../layout/Section'
 import { SectionHeader } from '../layout/SectionHeader'
 import { FeaturedPanel } from '../ui/FeaturedPanel'
 import { SeasonTimeline } from '../ui/SeasonTimeline'
-import { ArtPlaceholder } from '../ui/ArtPlaceholder'
+import { SceneCollage } from '../ui/SceneCollage'
 
 const seasonVisuals = {
   awakening: {
@@ -93,22 +93,12 @@ export function SeasonSection({ season }: SeasonSectionProps) {
             </motion.div>
 
             <motion.div
-              className="mb-16 grid gap-4 sm:grid-cols-3"
+              className="mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              {season.scenes.map((scene) => (
-                <ArtPlaceholder
-                  key={scene.label}
-                  src={scene.src}
-                  alt={scene.label}
-                  label={scene.label}
-                  aspect="wide"
-                  fit={scene.fit ?? 'contain'}
-                  accent={`${visuals.accent}40`}
-                />
-              ))}
+              <SceneCollage scenes={season.scenes} accent={visuals.accent} />
             </motion.div>
 
             <SeasonTimeline events={season.events} accent={visuals.accent} />
@@ -121,6 +111,7 @@ export function SeasonSection({ season }: SeasonSectionProps) {
                 description={panel.description}
                 image={panel.image}
                 fit={panel.fit}
+                orientation={panel.orientation}
                 accent={visuals.accent}
                 glitch={isFall && i === 0}
                 size={isFall ? 'massive' : 'large'}

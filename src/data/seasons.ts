@@ -5,9 +5,12 @@ export type TimelineEvent = {
   blurb: string
 }
 
+export type ImageOrientation = 'landscape' | 'portrait'
+
 export type SeasonScene = {
   label: string
   src: string
+  orientation: ImageOrientation
   fit?: 'cover' | 'contain'
 }
 
@@ -17,6 +20,7 @@ export type FeaturedPanel = {
   subtitle: string
   description: string
   image: string
+  orientation?: ImageOrientation
   fit?: 'cover' | 'contain'
 }
 
@@ -41,9 +45,24 @@ export const seasons: SeasonData[] = [
     tone: 'Hopeful adventure with shadows gathering at the edges.',
     themes: ['Discovery', 'Innocence', 'First Sacrifice', 'The Realm Awakens'],
     scenes: [
-      { label: 'Lucas Awakens — The Glaive of Light', src: scenes.lucasGlaive, fit: 'cover' },
-      { label: 'Derrick — Into the Void', src: scenes.derrickVoid, fit: 'cover' },
-      { label: "Aira's Sacrifice", src: scenes.airaSacrifice, fit: 'cover' },
+      {
+        label: 'Lucas Awakens — The Glaive of Light',
+        src: scenes.lucasGlaive,
+        orientation: 'portrait',
+        fit: 'contain',
+      },
+      {
+        label: 'Derrick — Into the Void',
+        src: scenes.derrickVoid,
+        orientation: 'portrait',
+        fit: 'contain',
+      },
+      {
+        label: "Aira's Sacrifice",
+        src: scenes.airaSacrifice,
+        orientation: 'landscape',
+        fit: 'cover',
+      },
     ],
     events: [
       {
@@ -79,6 +98,7 @@ export const seasons: SeasonData[] = [
         description:
           'The moment everything changed — a still frame frozen between hope and grief.',
         image: scenes.airaSacrifice,
+        orientation: 'landscape',
         fit: 'cover',
       },
     ],
@@ -94,10 +114,21 @@ export const seasons: SeasonData[] = [
       {
         label: 'Terrorbyte Meets the Lord of Darkness',
         src: scenes.terrorbyteMeetsLord,
+        orientation: 'landscape',
         fit: 'cover',
       },
-      { label: 'Forging the Spear of Realms', src: scenes.spearForging, fit: 'cover' },
-      { label: 'Lord of Darkness — Decayed Form', src: diagrams.lordOfDarkness },
+      {
+        label: 'Forging the Spear of Realms',
+        src: scenes.spearForging,
+        orientation: 'portrait',
+        fit: 'contain',
+      },
+      {
+        label: 'Lord of Darkness — Decayed Form',
+        src: diagrams.lordOfDarkness,
+        orientation: 'portrait',
+        fit: 'contain',
+      },
     ],
     events: [
       {
@@ -137,6 +168,7 @@ export const seasons: SeasonData[] = [
         description:
           'A convergence of annihilation and ambition — the chamber where cosmic evil negotiates with something worse.',
         image: scenes.terrorbyteMeetsLord,
+        orientation: 'landscape',
         fit: 'cover',
       },
       {
@@ -146,7 +178,8 @@ export const seasons: SeasonData[] = [
         description:
           'Ancient fire, realm-steel, and purpose sharp enough to cut the laws of existence itself.',
         image: scenes.spearForging,
-        fit: 'cover',
+        orientation: 'portrait',
+        fit: 'contain',
       },
     ],
   },
@@ -158,9 +191,24 @@ export const seasons: SeasonData[] = [
     tone: 'Catastrophic. Overwhelming. Reality itself begins to scream.',
     themes: ['Collapse', 'The Failure', 'Loss of Self', 'Breaking the Orb'],
     scenes: [
-      { label: 'Axel & Terrorbyte — Alliances of Ruin', src: diagrams.axel },
-      { label: 'The Failure — Shattered Form', src: diagrams.theFailure },
-      { label: 'The Orb of Creation — The Mural', src: scenes.theFailureMural, fit: 'cover' },
+      {
+        label: 'Axel & Terrorbyte — Alliances of Ruin',
+        src: diagrams.axel,
+        orientation: 'portrait',
+        fit: 'contain',
+      },
+      {
+        label: 'The Failure — Shattered Form',
+        src: diagrams.theFailure,
+        orientation: 'portrait',
+        fit: 'contain',
+      },
+      {
+        label: 'The Orb of Creation — The Mural',
+        src: scenes.theFailureMural,
+        orientation: 'portrait',
+        fit: 'contain',
+      },
     ],
     events: [
       {
@@ -196,6 +244,8 @@ export const seasons: SeasonData[] = [
         description:
           'The visual centerpiece. Fractured space, living armor, and the entity that ends cycles.',
         image: diagrams.theFailure,
+        orientation: 'portrait',
+        fit: 'contain',
       },
       {
         id: 'orb-breaks',
@@ -204,7 +254,8 @@ export const seasons: SeasonData[] = [
         description:
           'Light explodes outward. Realms scream. The moment Chapter 1 breaks the world to save it.',
         image: scenes.theFailureMural,
-        fit: 'cover',
+        orientation: 'portrait',
+        fit: 'contain',
       },
     ],
   },

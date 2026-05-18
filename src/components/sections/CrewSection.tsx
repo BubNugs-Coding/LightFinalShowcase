@@ -74,10 +74,11 @@ export function CrewSection() {
               src={selected.image}
               alt={`${selected.name} character concept`}
               label={`${selected.name} — Concept Sheet`}
-              aspect="tall"
+              aspect="auto"
               fit="contain"
               accent={selected.glow}
-              className="max-h-[560px] w-full max-w-md mx-auto lg:mx-0"
+              showLabel={false}
+              className="mx-auto h-[clamp(420px,55vh,640px)] w-full max-w-lg lg:mx-0"
             />
 
             <motion.div className="flex flex-col justify-center">
