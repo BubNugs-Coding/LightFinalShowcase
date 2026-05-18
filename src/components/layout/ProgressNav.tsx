@@ -1,6 +1,7 @@
 import { motion, useScroll, useSpring } from 'framer-motion'
 
 const navItems = [
+  { id: 'ai-stance', label: 'AI' },
   { id: 'world', label: 'World' },
   { id: 'crew', label: 'Crew' },
   { id: 'season-awakening', label: 'S1' },

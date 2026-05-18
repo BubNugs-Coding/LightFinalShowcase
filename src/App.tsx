@@ -1,4 +1,5 @@
 import { Hero } from './components/sections/Hero'
+import { AiStanceSection } from './components/sections/AiStanceSection'
 import { WorldSection } from './components/sections/WorldSection'
 import { CrewSection } from './components/sections/CrewSection'
 import { SeasonSection } from './components/sections/SeasonSection'
@@ -14,6 +15,8 @@ function App() {
       <ProgressNav />
       <main>
         <Hero />
+        <SectionDivider from="transparent" to="rgba(167, 139, 250, 0.45)" />
+        <AiStanceSection />
         <SectionDivider from="transparent" to="rgba(45, 212, 191, 0.5)" />
         <WorldSection />
         <SectionDivider from="transparent" to="rgba(232, 197, 71, 0.5)" />
